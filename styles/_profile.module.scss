@@ -1,0 +1,82 @@
+.container {
+  width: 100%;
+  min-height: 85vh;
+
+  .header {
+    width: 100%;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    // background-color: #44475a;
+    border-radius: 10px 10px 0 0;
+    .headerImage {
+      width: 4.5rem;
+      height: 4.5rem;
+      margin-right: 1.5rem;
+      .roundedFull {
+        border-radius: 50%;
+      }
+    }
+    .headerInfo {
+      display: flex;
+      flex-direction: column;
+      .headerUserName {
+        color: #f8f8f2;
+        display: flex;
+        flex-direction: row;
+        font-size: 2.4rem;
+        .verifiedIcon {
+          color: #50fa7b;
+          font-size: 1.5rem;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+  .content {
+    width: 100%;
+
+    // border-radius: 10px;
+
+    .contentHeader {
+      width: 100%;
+      padding: 1rem;
+      display: flex;
+      flex-direction: row;
+      border-bottom: 2px solid #efeff186;
+      // background-color: #44475a;
+      // margin-bottom: 4rem;
+      .contentHeaderTitle {
+        font-size: 1.8rem;
+        margin: 0 10px;
+        padding-bottom: 4px;
+        cursor: pointer;
+        color: #f8f8f2;
+      }
+    }
+    .contentList {
+      width: 100%;
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      grid-gap: 1rem;
+      padding: 1rem;
+      overflow-y: scroll;
+    }
+  }
+}
+
+.videoCategory {
+  border-bottom: 2px #50fa7b solid;
+}
+
+.unVideoCategory {
+}
+
+.likedVideoCategory {
+  border-bottom: 2px #50fa7b solid;
+}
+
+.unlikedVideoCategory {
+}

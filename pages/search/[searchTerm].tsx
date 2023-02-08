@@ -11,6 +11,8 @@ import useAuthStore from '../../store/authStore'
 import { BASE_URL } from '../../utils'
 import { IUser, Video } from '../../types'
 
+import styles from '../../styles/_search.module.scss'
+
 const Search = ({ videos }: { videos: Video[] }) => {
   const [isAccounts, setIsAccounts] = useState(false)
   const { allUsers }: { allUsers: IUser[] } = useAuthStore()
@@ -18,58 +20,58 @@ const Search = ({ videos }: { videos: Video[] }) => {
   const router = useRouter()
   const { searchTerm }: any = router.query
 
-  const accounts = isAccounts ? 'search-tabs-accounts--active' : ''
-  const isVideos = !isAccounts ? 'search-tabs-videos--active' : ''
+  const accounts = isAccounts ? styles.tabsAccountsActive : ''
+  const isVideos = !isAccounts ? styles.tabsVideosActive : ''
   const searchedAccounts = allUsers?.filter((user: IUser) =>
     user.userName.toLowerCase().includes(searchTerm)
   )
 
   return (
-    <div className="search-container">
-      <div className="search-tabs">
+    <div className={styles.container}>
+      <div className={styles.tabs}>
         <p
           onClick={() => setIsAccounts(true)}
-          className={`search-tabs-accounts ${accounts}`}
+          className={`${styles.tabsAccounts} ${accounts}`}
         >
           Accounts
         </p>
         <p
-          className={`search-tabs-videos ${isVideos}`}
+          className={`${styles.tabsVideos} ${isVideos}`}
           onClick={() => setIsAccounts(false)}
         >
           Videos
         </p>
       </div>
       {isAccounts ? (
-        <div className="search-accounts">
+        <div className={styles.accounts}>
           {searchedAccounts.length > 0 ? (
             searchedAccounts.map((user: IUser, idx: number) => (
               <Link key={idx} href={`/profile/${user._id}`}>
-                <div className="search-accounts-item">
+                <div className={styles.accountsItem}>
                   <Image
                     width={50}
                     height={50}
-                    className="accounts-img"
+                    className={styles.img}
                     alt="user-profile"
                     src={user.image}
                   />
 
-                  <p className="accounts-name">
-                    {user.userName} <GoVerified className="accounts-verified" />
+                  <p className={styles.name}>
+                    {user.userName} <GoVerified className={styles.verified} />
                   </p>
-                  <p className="accounts-username">{user.userName}</p>
+                  {/* <p className={styles.username}>{user.userName}</p> */}
                 </div>
               </Link>
             ))
           ) : (
-            <div className="search-results-msg">
+            <div className={styles.resultsMsg}>
               {' '}
               <EmptyResults text={`No Account Results for ${searchTerm}`} />
             </div>
           )}
         </div>
       ) : (
-        <div className="search-videos">
+        <div className={styles.videos}>
           {videos.length ? (
             videos.map((post: Video, idx: number) => (
               <Videos post={post} key={idx} />

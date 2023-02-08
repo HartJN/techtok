@@ -8,6 +8,8 @@ import NoResults from '../../components/EmptyResults'
 import { IUser, Video } from '../../types'
 import { BASE_URL } from '../../utils'
 
+import styles from '../../styles/_profile.module.scss'
+
 interface IProps {
   data: {
     user: IUser
@@ -21,10 +23,11 @@ const Profile = ({ data }: IProps) => {
   const [videosList, setVideosList] = useState<Video[]>([])
 
   const { user, userVideos, userLikedVideos } = data
-  const videos = showUserVideos ? 'video-category' : 'un-video-category'
+
+  const videos = showUserVideos ? styles.videoCategory : styles.unVideoCategory
   const liked = !showUserVideos
-    ? 'liked-video-category'
-    : 'unliked-video-category'
+    ? styles.likedVideoCategory
+    : styles.unlikedVideoCategory
 
   useEffect(() => {
     const fetchVideos = async () => {
@@ -39,41 +42,41 @@ const Profile = ({ data }: IProps) => {
   }, [showUserVideos, userLikedVideos, userVideos])
 
   return (
-    <div className="profile-container">
-      <div className="profile-header">
-        <div className="profile-header-image">
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <div className={styles.headerImage}>
           <Image
             width={120}
             height={120}
             layout="responsive"
-            className="rounded-full"
+            className={styles.roundedFull}
             src={user.image}
             alt="user-profile"
           />
         </div>
-        <div className="profile-header-info">
-          <div className="profile-header-user-name">
+        <div className={styles.headerInfo}>
+          <div className={styles.headerUserName}>
             <span>{user.userName.replace(/\s+/g, '')} </span>
-            <GoVerified className="verified-icon"> </GoVerified>
+            <GoVerified className={styles.verifiedIcon}> </GoVerified>
           </div>
         </div>
       </div>
-      <div className="profile-content">
-        <div className="profile-content-header">
+      <div className={styles.content}>
+        <div className={styles.contentHeader}>
           <p
-            className={`profile-content-header-title ${videos}`}
+            className={`${styles.contentHeaderTitle} ${videos}`}
             onClick={() => setShowUserVideos(true)}
           >
             Videos
           </p>
           <p
-            className={`profile-content-header-title ${liked}`}
+            className={`${styles.contentHeaderTitle} ${liked}`}
             onClick={() => setShowUserVideos(false)}
           >
             Liked
           </p>
         </div>
-        <div className="profile-content-list">
+        <div className={styles.contentList}>
           {videosList.length > 0 ? (
             videosList.map((post: Video, idx: number) => (
               <Videos key={idx} post={post} />

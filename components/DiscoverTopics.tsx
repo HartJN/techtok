@@ -4,23 +4,28 @@ import { useRouter } from 'next/router'
 
 import { topics } from '../utils/constants'
 
+import styles from '../styles/_discoverTopics.module.scss'
+
 const Discover = () => {
   const router = useRouter()
   const { topic } = router.query
 
+
   return (
-    <div className="discover-container">
-      <p className="sidebar-heading">Popular Topics</p>
-      <div className="topics-container">
+    <div className={styles.container}>
+      <p className={styles.heading}>Popular Topics</p>
+      <div className={styles.topics}>
         {topics.map(item => (
           <Link href={`/?topic=${item.name}`} key={item.name}>
             <div
               className={
-                topic === item.name ? 'activeTopicStyle' : 'topicStyle'
+                topic === item.name
+                  ? styles.activeTopicStyle
+                  : styles.topicStyle
               }
             >
-              <span className="discover_topic-icon">{item.icon}</span>
-              <span className="sidebar-heading">{item.name}</span>
+              <span className={styles.topicIcon}>{item.icon}</span>
+              <span className={styles.sidebarHeading}>{item.name}</span>
             </div>
           </Link>
         ))}

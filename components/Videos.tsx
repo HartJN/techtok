@@ -6,6 +6,7 @@ import { HiVolumeUp, HiVolumeOff } from 'react-icons/hi'
 import { BsFillPlayFill, BsFillPauseFill } from 'react-icons/bs'
 import { GoVerified } from 'react-icons/go'
 import { BsPlay } from 'react-icons/bs'
+import styles from '../styles/_Videos.module.scss'
 
 import { Video } from './../types'
 
@@ -41,16 +42,20 @@ const VideoCard: NextPage<IProps> = ({
 
   if (!isShowingOnHome) {
     return (
-      <div className="not-home">
+      <div className={styles.notHome}>
         <Link href={`/detail/${_id}`}>
-          <p className="caption-text">{caption}</p>
+          <p className={styles.caption}>{caption}</p>
         </Link>
         <Link href={`/detail/${_id}`}>
-          <video loop src={video.asset.url} className="video-thumbnail"></video>
+          <video
+            loop
+            src={video.asset.url}
+            className={styles.thumbnail}
+          ></video>
         </Link>
-        <div className="likes-container">
-          <p className="likes-text">
-            <BsPlay className="play-icon" />
+        <div className={styles.likesContainer}>
+          <p className={styles.text}>
+            <BsPlay className={styles.playIcon} />
             {likes?.length || 0}
           </p>
         </div>
@@ -59,76 +64,74 @@ const VideoCard: NextPage<IProps> = ({
   }
 
   return (
-    <div className="video-card_container">
-      <div className="video-card_header">
-        <div className="video-card_header__avatar">
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <div className={styles.headerAvatar}>
           <Link href={`/profile/${postedBy?._id}`}>
-            <>
-              <Image
-                width={62}
-                height={62}
-                className=" video-card_header__avatar-img"
-                src={postedBy?.image}
-                alt="user-profile"
-                layout="responsive"
-              />
-            </>
+            <Image
+              width={62}
+              height={62}
+              className={styles.headerAvatarImg}
+              src={postedBy?.image}
+              alt="user-profile"
+              layout="responsive"
+            />
           </Link>
 
-          <div className="video-details">
+          <div className={styles.details}>
             <Link href={`/profile/${postedBy?._id}`}>
-              <div className="video-card_header__info">
-                <p className="video-card_header__info-name">
+              <div className={styles.headerInfo}>
+                <p className={styles.headerInfoName}>
                   {postedBy.userName}{' '}
-                  <GoVerified className="video-card_header__info-verified" />
+                  <GoVerified className={styles.headerInfoVerified} />
                 </p>
               </div>
             </Link>
             <Link href={`/detail/${_id}`}>
-              <p className="video-card_header__caption">{caption}</p>
+              <p className={styles.headerCaption}>{caption}</p>
             </Link>
           </div>
         </div>
       </div>
 
-      <div className="video-card_body">
+      <div className={styles.body}>
         <div
           onMouseEnter={() => setIsHover(true)}
           onMouseLeave={() => setIsHover(false)}
-          className="video-card_body__video"
+          className={styles.video}
         >
           <Link href={`/detail/${_id}`}>
             <video
               loop
               ref={videoRef}
               src={video.asset.url}
-              className="video-card_body__video-video"
+              className={styles.videoVideo}
             ></video>
           </Link>
-
           {isHover && (
             <>
-              <div className="video-card_body__video-controls">
-                {!playing ? (
-                  <button onClick={onVideoPress}>
-                    <BsFillPlayFill className="video-card_body__video-controls-pause" />
-                  </button>
-                ) : (
-                  <button onClick={onVideoPress}>
-                    <BsFillPauseFill className="video-card_body__video-controls-play" />
-                  </button>
-                )}
-              </div>
-              <div className="video-card_body__video-controls-volume">
+              <div className={styles.videoControls}>
                 {isVideoMuted ? (
                   <button onClick={() => setIsVideoMuted(false)}>
-                    <HiVolumeOff className="video-card_body__video-controls-unmute" />
+                    <HiVolumeOff className={styles.videoControlsUnmute} />
                   </button>
                 ) : (
                   <button onClick={() => setIsVideoMuted(true)}>
-                    <HiVolumeUp className="video-card_body__video-controls-mute" />
+                    <HiVolumeUp className={styles.videoControlsMute} />
                   </button>
                 )}
+                {/* </div> */}
+                {!playing ? (
+                  <button onClick={onVideoPress}>
+                    <BsFillPlayFill className={styles.videoControlsPause} />
+                  </button>
+                ) : (
+                  <button onClick={onVideoPress}>
+                    <BsFillPauseFill className={styles.videoControlsPlay} />
+                  </button>
+                )}
+                {/* </div> */}
+                {/* <div className={styles.videoControlsVolume}> */}
               </div>
             </>
           )}

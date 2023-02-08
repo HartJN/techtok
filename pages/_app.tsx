@@ -5,6 +5,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google'
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import '../styles/globals.css'
+import styles from '../styles/_app.module.scss'
 
 const App = ({ Component, pageProps }: AppProps) => {
   const [isSSR, setIsSSR] = useState(true)
@@ -19,14 +20,14 @@ const App = ({ Component, pageProps }: AppProps) => {
     <GoogleOAuthProvider
       clientId={`${process.env.NEXT_PUBLIC_GOOGLE_API_TOKEN}`}
     >
-      <div className="container">
-        <header className="header">
+      <div className={styles.container}>
+        <header className={styles.header}>
           <Navbar />
         </header>
-        <div className="sidebar-wrapper">
+        <div className={styles.sidebar_wrapper}>
           <Sidebar />
         </div>
-        <div className="main-wrapper">
+        <div className={styles.main_wrapper}>
           <Component {...pageProps} />
         </div>
       </div>

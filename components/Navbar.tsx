@@ -11,6 +11,7 @@ import useAuthStore from '../store/authStore'
 import { IUser } from '../types'
 import { createOrGetUser } from '../utils'
 import Logo from '../utils/user.png'
+import styles from '../styles/_navbar.module.scss'
 
 const Navbar = () => {
   const [user, setUser] = useState<IUser | null>()
@@ -31,12 +32,12 @@ const Navbar = () => {
   }
 
   return (
-    <div className="navbar-container">
-      <div className="navbar-left">
+    <div className={styles.container}>
+      <div className={styles.left}>
         <Link href="/">
-          <div className="navbar-logo">
+          <div className={styles.logo}>
             <Image
-              className="cursor-pointer"
+              className={styles.pointer}
               src={Logo}
               alt="logo"
               layout="responsive"
@@ -44,53 +45,51 @@ const Navbar = () => {
           </div>
         </Link>
       </div>
-      <div className="navbar-middle">
-        <div className="navbar-middle-container">
-          <form onSubmit={handleSearch} className="navbar-search">
+      <div className={styles.middle}>
+        <div className={styles.middleContainer}>
+          <form onSubmit={handleSearch} className={styles.search}>
             <input
               value={searchValue}
               onChange={e => setSearchValue(e.target.value)}
-              className="navbar-search-input"
+              className={styles.searchInput}
               placeholder="Search accounts and videos"
             />
-            <button onClick={handleSearch} className="navbar-search-button">
+            <button onClick={handleSearch} className={styles.searchBtn}>
               <BiSearch />
             </button>
           </form>
         </div>
       </div>
-      <div className="navbar-right">
+      <div className={styles.right}>
         {user ? (
-          <div className="navbar-user">
+          <div className={styles.user}>
             <Link href="/upload">
-              <button className="navbar-upload-button">
-                <IoMdAdd className="navbar-upload-button-icon" />
-                <span className="navbar-upload-button-text">Upload</span>
+              <button className={styles.uploadBtn}>
+                <IoMdAdd className={styles.uploadIcon} />
+                <span className={styles.uploadText}>Upload</span>
               </button>
             </Link>
-            {user.image && (
-              <Link href={`/profile/${user._id}`}>
-                <div>
-                  <Image
-                    className="navbar-user-image"
-                    src={user.image}
-                    alt="user"
-                    width={40}
-                    height={40}
-                  />
-                </div>
-              </Link>
-            )}
             <button
               type="button"
-              className="navbar-logout-button"
+              className={styles.logoutBtn}
               onClick={() => {
                 googleLogout()
                 removeUser()
               }}
             >
-              <LogoutIcon className="navbar-logout-svg" />
+              <LogoutIcon className={styles.logoutSvg} />
             </button>
+            {user.image && (
+              <Link href={`/profile/${user._id}`}>
+                <Image
+                  className={styles.userImage}
+                  src={user.image}
+                  alt="user"
+                  width={40}
+                  height={40}
+                />
+              </Link>
+            )}
           </div>
         ) : (
           <GoogleLogin
@@ -102,5 +101,4 @@ const Navbar = () => {
     </div>
   )
 }
-
 export default Navbar

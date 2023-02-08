@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { MdFavorite } from 'react-icons/md'
 import { NextPage } from 'next'
+import styles from '../styles/_likeBtn.module.scss'
 
 import useAuthStore from '../store/authStore'
 
@@ -30,22 +31,22 @@ const LikeButton: NextPage<IProps> = ({
   }, [filterLikes, likes])
 
   return (
-    <div className={`${flex} like-button_container`}>
-      <div className="like-button_icon-container">
+    <div className={`${flex} ${styles.container}`}>
+      <div className={styles.iconWrapper}>
         {alreadyLiked ? (
           <div
-            className="like-button_icon like-button_icon--liked"
+            className={`${styles.icon} ${styles.iconLiked}`}
             onClick={handleDislike}
           >
-            <MdFavorite className="like-button_icon-text" />
+            <MdFavorite className={styles.likeBtnText} />
           </div>
         ) : (
-          <div className="like-button_icon" onClick={handleLike}>
-            <MdFavorite className="like-button_icon-text" />
+          <div className={styles.icon} onClick={handleLike}>
+            <MdFavorite className={styles.likeBtnText} />
           </div>
         )}
       </div>
-      <p className="like-button_text">{likes?.length || 0}</p>
+      <p className={styles.likeText}>{likes?.length || 0}</p>
     </div>
   )
 }

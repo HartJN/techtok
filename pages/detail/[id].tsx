@@ -13,6 +13,8 @@ import useAuthStore from '../../store/authStore'
 import { Video } from '../../types'
 import axios from 'axios'
 
+import styles from '../../styles/_details.module.scss'
+
 interface IProps {
   postDetails: Video
 }
@@ -84,80 +86,85 @@ const Detail = ({ postDetails }: IProps) => {
   return (
     <>
       {post && (
-        <div className="details_container">
-          <div className="details_video_overlay_close">
-            <p className="details-back-btn" onClick={() => router.back()}>
+        <div className={styles.detailsContainer}>
+          <div className={styles.detailsOverlayClose}>
+            <p className={styles.backBtn} onClick={() => router.back()}>
               Back
             </p>
           </div>
-          <div className="details-header">
-            <div className="details_info_container-user">
+          <div className={styles.header}>
+            <div className={styles.userInfo}>
               <Link href={`/profile/${post.postedBy._id}`}>
-                <div className="details_info_container-user-profile">
+                <div className={styles.userProfile}>
                   <Image
                     width={60}
                     height={60}
                     alt="user-profile"
-                    className="details_info_container-user-profile-img"
+                    className={styles.userProfileImg}
                     src={post.postedBy.image}
                   />
-                  <div className="details_info_container-user-profile-info">
-                    <div className="details_info_container-user-profile-info-name">
-                      {post.postedBy.userName.replace(/\s+/g, '')}{' '}
-                      <GoVerified className="details_info_container-user-profile-info-name-verified" />
+                  <div className={styles.userProfileInfo}>
+                    <div className={styles.userProfileInfoName}>
+                      {post.postedBy.userName.replace(/\s+/g, '')}
+                      <GoVerified
+                        className={styles.userProfileInfoNameVerified}
+                      />
                     </div>
-                    {/* <p className="details_info_container-user-profile-info-username">
-                          {' '}
-                          {post.postedBy.userName}
-                        </p> */}
+                    <div className={styles.caption}>
+                      <p className={styles.captionText}>{post.caption}</p>
+                    </div>
                   </div>
                 </div>
               </Link>
             </div>
-            <div className="details_info_container-caption">
-              <p className="details_info_container-caption-text">
-                {post.caption}
-              </p>
-            </div>
+            {/* <div className={styles.caption}>
+              <p className={styles.captionText}>{post.caption}</p>
+            </div> */}
           </div>
-          <div className="details_video_container">
-            <div className="details_video_overlay">
-              <div className="details_video_overlay_video">
-                <div className="details_video_overlay_video-wrapper">
-                  <video
-                    ref={videoRef}
-                    onClick={onVideoClick}
-                    loop
-                    src={post?.video?.asset.url}
-                    className="details_video_overlay_video-wrapper-vid"
-                  ></video>
-                  <div className="details_video_overlay_video-play">
-                    {!isPlaying ? (
-                      <button onClick={onVideoClick}>
-                        <BsFillPlayFill className="details-video-play-icon" />
-                      </button>
-                    ) : (
-                      <button onClick={onVideoClick}>
-                        <BsFillPauseFill className="details-video-play-icon" />
-                      </button>
-                    )}
-                  </div>
-                  <div className="details_video_overlay_volume">
-                    {isVideoMuted ? (
-                      <button onClick={() => setIsVideoMuted(false)}>
-                        <HiVolumeOff className="details-video-volume-icon" />
-                      </button>
-                    ) : (
-                      <button onClick={() => setIsVideoMuted(true)}>
-                        <HiVolumeUp className="details-video-volume-icon" />
-                      </button>
-                    )}
-                  </div>
+          <div className={styles.videoContainer}>
+            <div className={styles.videoOverlay}>
+              <div className={styles.videoWrapper}>
+                <video
+                  ref={videoRef}
+                  onClick={onVideoClick}
+                  loop
+                  src={post?.video?.asset.url}
+                  className={styles.video}
+                ></video>
+                <div className={styles.videoControls}>
+                  {/* <div className={styles.videoPlay}> */}
+                  {!isPlaying ? (
+                    <button onClick={onVideoClick}>
+                      <BsFillPlayFill className={styles.videoPlayIcon} />
+                    </button>
+                  ) : (
+                    <button onClick={onVideoClick}>
+                      <BsFillPauseFill className={styles.videoPlayIcon} />
+                    </button>
+                  )}
+                  {/* </div> */}
+                  {/* <div className={styles.videoVolume}> */}
+                  {isVideoMuted ? (
+                    <button onClick={() => setIsVideoMuted(false)}>
+                      <HiVolumeOff className={styles.videoVolumeIcon} />
+                    </button>
+                  ) : (
+                    <button onClick={() => setIsVideoMuted(true)}>
+                      <HiVolumeUp className={styles.videoVolumeIcon} />
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
-            <div className="details_info_container">
-              <div className="details_info_container-likes">
+            <div className={styles.info}>
+              <Comments
+                comment={comment}
+                setComment={setComment}
+                addComment={addComment}
+                comments={post.comments}
+                isPostingComment={isPostingComment}
+              />
+              <div className={styles.likes}>
                 {userProfile && (
                   <LikeButton
                     likes={post.likes}
@@ -167,13 +174,6 @@ const Detail = ({ postDetails }: IProps) => {
                   />
                 )}
               </div>
-              <Comments
-                comment={comment}
-                setComment={setComment}
-                addComment={addComment}
-                comments={post.comments}
-                isPostingComment={isPostingComment}
-              />
             </div>
           </div>
         </div>

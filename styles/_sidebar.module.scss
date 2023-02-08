@@ -1,0 +1,50 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .home {
+    cursor: pointer;
+    margin-top: 1.5rem;
+
+    .activeLink {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      svg {
+        color: #efeff1;
+        width: auto;
+        height: 2.8rem;
+      }
+
+      .heading {
+        color: #efeff1;
+        font-size: 2.8rem;
+
+        text-align: center;
+      }
+    }
+    .normalLink {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      svg {
+        color: #efeff1;
+        width: auto;
+        height: 2.8rem;
+      }
+
+      .heading {
+        color: #efeff1;
+        font-size: 2.8rem;
+
+        text-align: center;
+
+        &:hover {
+          color: #50fa7b;
+        }
+      }
+    }
+  }
+}

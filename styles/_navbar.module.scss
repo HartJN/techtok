@@ -1,0 +1,131 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 6rem;
+  background-color: #18181b;
+  color: #cbcbcd;
+
+  box-shadow: rgba(0, 0, 0, 0.9) 0px 1px 2px 0px,
+    rgba(0, 0, 0, 0.9) 0px 0px 2px 0px;
+
+  .left {
+    display: flex;
+    align-items: center;
+  }
+
+  .middle {
+    display: flex;
+    align-items: center;
+
+    .middleContainer {
+      display: flex;
+      align-items: center;
+      // margin: 0 10px;
+
+      .search {
+        display: flex;
+        align-items: center;
+        // border: 1px solid #6272a4;
+
+        height: 4.5rem;
+
+        // width: 100vw;
+        .searchInput {
+          width: 50rem;
+          height: 100%;
+          border: none;
+
+          color: #828284;
+          background-color: #3d3d40;
+          font-size: 1.8rem;
+          border-radius: 8px 0 0 8px;
+          padding-left: 1.5rem;
+
+          &::placeholder {
+            color: #828284;
+          }
+
+          &:focus {
+            outline: transparent;
+          }
+        }
+        .searchBtn {
+          color: #efeff1;
+          width: 4rem;
+          height: 4.5rem;
+          border: none;
+          background-color: #2a2a2d;
+          cursor: pointer;
+          border-radius: 0 8px 8px 0;
+
+          svg {
+            display: block;
+            margin: 0 auto;
+            width: 2.5rem;
+            height: 2.5rem;
+          }
+        }
+      }
+    }
+  }
+
+  .right {
+    .user {
+      display: flex;
+      flex-direction: row;
+      gap: 2.5rem;
+      align-items: center;
+      justify-content: center;
+      .uploadBtn {
+        border: 2px;
+        padding: 3px;
+        text-transform: uppercase;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        background-color: transparent;
+        cursor: pointer;
+
+        .uploadIcon {
+          font-size: 4.5rem;
+          color: #efeff1;
+        }
+
+        .uploadText {
+          // display: none;
+          color: #efeff1;
+        }
+      }
+      .userImage {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 10%;
+        object-fit: cover;
+        cursor: pointer;
+      }
+      .logoutBtn {
+        border: 2px;
+        padding: 2px;
+        color: #efeff1;
+        background-color: transparent;
+        cursor: pointer;
+        .logoutSvg {
+          font-size: 3.5rem;
+        }
+      }
+    }
+  }
+
+  .logo {
+    width: 3.6rem;
+    height: auto;
+    border-radius: 50%;
+    margin-right: 5rem;
+    .pointer {
+      cursor: pointer;
+    }
+  }
+}

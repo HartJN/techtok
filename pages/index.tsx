@@ -5,6 +5,7 @@ import Videos from '../components/Videos'
 import { BASE_URL } from '../utils'
 import { Video } from '../types'
 import NoResults from '../components/EmptyResults'
+import styles from '../styles/_home.module.scss'
 
 interface IProps {
   videos: Video[]
@@ -12,7 +13,7 @@ interface IProps {
 
 const Home = ({ videos }: IProps) => {
   return (
-    <div className="home-videos-container">
+    <div className={styles.home}>
       {videos.length ? (
         videos?.map((video: Video) => (
           <Videos post={video} isShowingOnHome key={video._id} />

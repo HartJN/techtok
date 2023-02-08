@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import Image from 'next/image'
 import { NextPage } from 'next'
 import Link from 'next/link'
+import styles from '../styles/_SuggestedAccounts.module.scss'
 
 import { IUser } from '../types'
 
@@ -20,25 +21,24 @@ const SuggestedAccounts: NextPage<IProps> = ({ fetchAllUsers, allUsers }) => {
     .slice(0, allUsers.length)
 
   return (
-    <div className="suggested-accounts-container">
-      <p className="sidebar-heading">Suggested accounts</p>
+    <div className={styles.container}>
+      <p className={styles.sidebarHeading}>Suggested accounts</p>
       <div>
         {users?.slice(0, 6).map((user: IUser) => (
           <Link href={`/profile/${user._id}`} key={user._id}>
-            <div className="suggested-accounts-wrapper">
-              <div className="suggested-accounts-image">
+            <div className={styles.wrapper}>
+              <div className={styles.image}>
                 <Image
                   width={34}
                   height={34}
-                  className="rounded-full"
+                  className={styles.roundedFull}
                   src={user.image}
                   alt="user-profile"
                   layout="responsive"
                 />
               </div>
-
-              <div className="suggested-accounts-info">
-                <p className="sidebar-heading-su">
+              <div className={styles.info}>
+                <p className={styles.sidebarHeadingSu}>
                   {user.userName.replace(/\s+/g, '')}{' '}
                 </p>
               </div>
@@ -49,5 +49,4 @@ const SuggestedAccounts: NextPage<IProps> = ({ fetchAllUsers, allUsers }) => {
     </div>
   )
 }
-
 export default SuggestedAccounts

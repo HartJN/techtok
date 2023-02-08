@@ -1,0 +1,117 @@
+.comments_wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: #18181b;
+
+  .comment_list {
+    overflow: scroll;
+    height: 50vh;
+    // background-color: #44475a63;
+    padding: 1rem;
+    max-width: 50rem;
+    // border-bottom: 2px solid #44475a;
+    .comment_item {
+      display: flex;
+      flex-direction: column;
+
+      flex-wrap: wrap;
+      word-wrap: break-word;
+      word-break: break-all;
+      overflow: scroll;
+
+      border-radius: 10px;
+
+      font-size: 1.9rem;
+      .comment_author {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 4px;
+
+        .comment_author_image {
+          width: 3rem;
+          height: 3rem;
+
+          span {
+            img {
+              width: 100%;
+              height: 100%;
+              border-radius: 50%;
+            }
+          }
+        }
+
+        .comment_author_name {
+          font-size: 1.8rem;
+          color: #f8f8f2;
+          font-weight: bold;
+        }
+
+        .author_verified_icon {
+          font-size: 1.6rem;
+          color: #50fa7b;
+        }
+      }
+      .comment_text {
+        color: #ececef;
+        // margin-left: 2rem;
+        margin: 0 0 0 2rem;
+        /* font-size: 18px; */
+      }
+    }
+  }
+  .add_comment_section {
+    // display: flex;
+    // flex-direction: row;
+    // align-items: center;
+    // justify-content: space-between;
+    // margin-top: 2rem;
+    .comment_form {
+      display: flex;
+      flex-direction: column;
+      // align-items: center;
+      gap: 4px;
+      width: 100%;
+      // padding: 2rem;
+      border-radius: 0 0 10px 0;
+      // border-top: 15px solid #44475a;
+      .comment_input {
+        // width: 100%;
+        font-size: 1.2rem;
+
+        border: 1px solid #44475a;
+        border-radius: 5px;
+
+        padding: 0.5rem 1rem;
+        margin: 0 0.5rem;
+        font-size: 1.8rem;
+        background-color: #3d3d40;
+
+        &::placeholder {
+          color: #b8b8b9;
+        }
+
+        &:focus {
+          background-color: #000000;
+          color: #f8f8f2;
+
+          outline: transparent;
+        }
+      }
+      .comment_submit_button {
+        font-size: 1.6rem;
+        color: #000000;
+        background-color: #50fa7b;
+        border: none;
+        border-radius: 5px;
+        width: fit-content;
+        height: 3.5rem;
+        align-self: flex-end;
+
+        padding: 0.25rem 1rem;
+      }
+    }
+  }
+}

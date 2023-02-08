@@ -6,6 +6,7 @@ import { AiFillHome } from 'react-icons/ai'
 
 import SuggestedAccounts from './SuggestedAccounts'
 import DiscoverTopics from './DiscoverTopics'
+import styles from '../styles/_sidebar.module.scss'
 
 import useAuthStore from '../store/authStore'
 const Sidebar: NextPage = () => {
@@ -16,14 +17,17 @@ const Sidebar: NextPage = () => {
   return (
     <>
       {showSidebar && (
-        <div className="sidebar-navigation">
-          <div className="sidebar-home">
+        <div className={styles.sidebar}>
+          <div className={styles.home}>
             <Link href="/">
-              <div className={pathname === '/' ? 'activeLink' : 'normalLink'}>
-                <p>
-                  <AiFillHome />
-                </p>
-                <span className="sidebar-heading">Home</span>
+              <div
+                className={
+                  pathname === '/' ? styles.activeLink : styles.normalLink
+                }
+              >
+                <AiFillHome />
+
+                <span className={styles.heading}>Home</span>
               </div>
             </Link>
           </div>

@@ -2,6 +2,7 @@ import React, { Dispatch, SetStateAction } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { GoVerified } from 'react-icons/go'
+import styles from '../styles/_comments.module.scss'
 
 import useAuthStore from '../store/authStore'
 import NoResults from './EmptyResults'
@@ -32,35 +33,38 @@ const Comments = ({
   const { allUsers, userProfile }: any = useAuthStore()
 
   return (
-    <div className="comments-container">
-      <div className="comments">
+    <div className={styles.comments_wrapper}>
+      <div className={styles.comment_list}>
         {comments?.length > 0 ? (
           comments?.map((item: IComment, idx: number) => (
             <>
               {allUsers?.map(
                 (user: IUser) =>
                   user._id === (item.postedBy._ref || item.postedBy._id) && (
-                    <div className="comment" key={idx}>
+                    <div className={styles.comment_item} key={idx}>
                       <Link href={`/profile/${user._id}`}>
-                        <div className="comment__user ">
-                          <div className="comment__user__image">
+                        <div className={styles.comment_author}>
+                          <div className={styles.comment_author_image}>
                             <Image
                               width={48}
                               height={48}
-                              className="comments_user-image"
+                              className={styles.author_image}
                               src={user.image}
                               alt="user-profile"
                               layout="responsive"
                             />
                           </div>
-                          <p className="comment__user__name">
+                          <p className={styles.comment_author_name}>
                             {user.userName}{' '}
-                            <GoVerified className="comment__user__name__verified" />
+                            <GoVerified
+                              className={styles.author_verified_icon}
+                            />
+                            :
                           </p>
                         </div>
                       </Link>
                       <div>
-                        <p className="comment__comment">{item.comment}</p>
+                        <p className={styles.comment_text}>{item.comment}</p>
                       </div>
                     </div>
                   )
@@ -72,16 +76,16 @@ const Comments = ({
         )}
       </div>
       {userProfile && (
-        <div className="comment__add-comment">
-          <form onSubmit={addComment} className="comment__add-comment__form">
+        <div className={styles.add_comment_section}>
+          <form onSubmit={addComment} className={styles.comment_form}>
             <input
               value={comment}
               onChange={e => setComment(e.target.value)}
-              className="comment__add-comment__form__input "
+              className={styles.comment_input}
               placeholder="Add comment.."
             />
             <button
-              className="comment__add-comment__form__button"
+              className={styles.comment_submit_button}
               onClick={addComment}
             >
               {isPostingComment ? 'Commenting...' : 'Comment'}

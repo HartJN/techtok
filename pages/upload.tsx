@@ -7,6 +7,7 @@ import useAuthStore from '../store/authStore'
 import { BASE_URL } from '../utils'
 import { client } from '../utils/client'
 import { topics } from '../utils/constants'
+import styles from '../styles/_upload.module.scss'
 
 const Upload = () => {
   const [caption, setCaption] = useState('')
@@ -85,46 +86,46 @@ const Upload = () => {
   }
 
   return (
-    <div className="upload-container">
-      <div className="upload-wrapper">
-        <p className="upload-upload-title">Upload Video</p>
+    <div className={styles.container}>
+      <div className={styles.wrapper}>
+        <p className={styles.title}>Upload Video</p>
 
-        <div className="upload-upload-border">
+        <div className={styles.border}>
           {loading ? (
-            <p className="upload-upload-loading">Uploading...</p>
+            <p className={styles.loading}>Uploading...</p>
           ) : (
             <>
               {!videoAsset ? (
-                <label className="upload-upload-label">
-                  <div className="upload-upload-file-type">
-                    <div className="upload-upload-file-type-title">
-                      <p className="upload-upload-file-type-p1">
+                <label className={styles.label}>
+                  <div className={styles.fileType}>
+                    <div className={styles.fileTypeTitle}>
+                      <p className={styles.fileTypeP1}>
                         Select video to upload
                       </p>
                     </div>
 
-                    <p className="upload-upload-file-type--p3">Select file</p>
-                    <label className="upload-form">
+                    <p className={styles.fileTypeP3}>Select file</p>
+                    <label className={styles.form}>
                       Browse..
                       <input
                         type="file"
                         name="upload-video"
                         onChange={e => uploadVideo(e)}
-                        className="upload-upload-input"
+                        className={styles.input}
                       />
                     </label>
                   </div>
                 </label>
               ) : (
-                <div className="upload-uploaded-video">
+                <div className={styles.uploadedVideo}>
                   <video
-                    className="upload-uploaded-video--video"
+                    className={styles.uploadedVideoVideo}
                     controls
                     loop
                     src={videoAsset?.url}
                   />
-                  <div className="upload-uploaded-video--stats">
-                    <p className="upload-uploaded-video--stats--filename">
+                  <div className={styles.uploadedVideoStats}>
+                    <p className={styles.uploadedVideoFilename}>
                       {videoAsset.originalFilename}
                     </p>
                   </div>
@@ -134,49 +135,45 @@ const Upload = () => {
           )}
         </div>
         {wrongFileType && (
-          <p className="upload-upload-wrong">
+          <p className={styles.wrong}>
             Please select an video file (mp4 or webm or ogg)
           </p>
         )}
       </div>
-      <div className="upload-upload-form">
-        <label className="upload-upload-form--label">Caption</label>
+      <div className={styles.form}>
+        <label className={styles.label}>Caption</label>
         <input
           type="text"
           value={caption}
           onChange={e => setCaption(e.target.value)}
-          className="upload-upload-form--input"
+          className={styles.input}
         />
-        <label className="upload-upload-form--label">Choose a topic</label>
+        <label className={styles.label}>Choose a topic</label>
         <select
           onChange={e => {
             setTopic(e.target.value)
           }}
-          className="upload-upload-form--select"
+          className={styles.select}
         >
           {topics.map(item => (
-            <option
-              key={item.name}
-              className="upload-upload-form--option"
-              value={item.name}
-            >
+            <option key={item.name} className={styles.option} value={item.name}>
               {item.name}
             </option>
           ))}
         </select>
-        <div className="upload-upload-form--buttons">
+        <div className={styles.buttons}>
           <button
             disabled={videoAsset?.url ? false : true}
             onClick={handlePost}
             type="button"
-            className="upload-upload-form--button--post"
+            className={styles.postButton}
           >
             {savingPost ? 'Posting...' : 'Post'}
           </button>
           <button
             onClick={handleDiscard}
             type="button"
-            className="upload-upload-form--button--discard"
+            className={styles.discardButton}
           >
             Discard
           </button>

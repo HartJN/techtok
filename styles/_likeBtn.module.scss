@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  .iconWrapper {
+    margin-top: 4px;
+    cursor: pointer;
+    .icon {
+      background-color: #50fa7b;
+      color: #282a36;
+      border-radius: 50%;
+      padding: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .likeBtnText {
+        font-size: 2.5rem;
+      }
+    }
+
+    .iconLiked {
+      background-color: #ff79c6;
+      color: #f8f8f2;
+      .likeBtnText {
+        font-size: 2.5rem;
+        color: #f8f8f2;
+      }
+    }
+  }
+  .likeText {
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: #f8f8f2;
+  }
+}
