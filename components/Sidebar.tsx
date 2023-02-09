@@ -12,6 +12,7 @@ import useAuthStore from '../store/authStore'
 const Sidebar: NextPage = () => {
   const [showSidebar, setShowSidebar] = useState<Boolean>(true)
   const { pathname } = useRouter()
+  console.log('🚀 ~ pathname', pathname)
   const { fetchAllUsers, allUsers }: any = useAuthStore()
 
   return (
@@ -22,7 +23,7 @@ const Sidebar: NextPage = () => {
             <Link href="/">
               <div
                 className={
-                  pathname === '/' || '' ? styles.activeLink : styles.normalLink
+                  pathname === '/' ? styles.activeLink : styles.normalLink
                 }
               >
                 <AiFillHome className={styles.homeSvg} />
