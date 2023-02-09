@@ -129,16 +129,8 @@
   }
 }
 
-@media (max-width: 59em) {
-  .container {
-    background-color: yellow;
-  }
-}
-
 @media (max-width: 44em) {
   .container {
-    background-color: red;
-
     .middle {
       .middleContainer {
         .search {
@@ -169,8 +161,6 @@
 
 @media (max-width: 34em) {
   .container {
-    background-color: blue;
-
     .middle {
       .middleContainer {
         .search {
