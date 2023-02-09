@@ -29,7 +29,7 @@
 
     .activeTopicStyle {
       .topicIcon {
-        color: #efeff1;
+        color: #50fa7b;
       }
       .sidebarHeading {
       }
@@ -53,6 +53,14 @@
         display: flex;
         justify-content: center;
 
+        span {
+          &:nth-child(2) {
+            display: none;
+          }
+        }
+      }
+
+      .activeTopicStyle {
         span {
           &:nth-child(2) {
             display: none;

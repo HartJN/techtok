@@ -22,7 +22,7 @@ const Sidebar: NextPage = () => {
             <Link href="/">
               <div
                 className={
-                  pathname === '/' ? styles.activeLink : styles.normalLink
+                  pathname === '/' || '' ? styles.activeLink : styles.normalLink
                 }
               >
                 <AiFillHome className={styles.homeSvg} />
