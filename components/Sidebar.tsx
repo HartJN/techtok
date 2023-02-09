@@ -25,14 +25,14 @@ const Sidebar: NextPage = () => {
                   pathname === '/' ? styles.activeLink : styles.normalLink
                 }
               >
-                <AiFillHome />
-
+                <AiFillHome className={styles.homeSvg} />
                 <span className={styles.heading}>Home</span>
               </div>
             </Link>
           </div>
 
           <DiscoverTopics />
+
           <SuggestedAccounts
             fetchAllUsers={fetchAllUsers}
             allUsers={allUsers}

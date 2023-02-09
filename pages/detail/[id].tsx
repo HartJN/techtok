@@ -117,43 +117,36 @@ const Detail = ({ postDetails }: IProps) => {
                 </div>
               </Link>
             </div>
-            {/* <div className={styles.caption}>
-              <p className={styles.captionText}>{post.caption}</p>
-            </div> */}
           </div>
           <div className={styles.videoContainer}>
             <div className={styles.videoOverlay}>
-              <div className={styles.videoWrapper}>
-                <video
-                  ref={videoRef}
-                  onClick={onVideoClick}
-                  loop
-                  src={post?.video?.asset.url}
-                  className={styles.video}
-                ></video>
-                <div className={styles.videoControls}>
-                  {/* <div className={styles.videoPlay}> */}
-                  {!isPlaying ? (
-                    <button onClick={onVideoClick}>
-                      <BsFillPlayFill className={styles.videoPlayIcon} />
-                    </button>
-                  ) : (
-                    <button onClick={onVideoClick}>
-                      <BsFillPauseFill className={styles.videoPlayIcon} />
-                    </button>
-                  )}
-                  {/* </div> */}
-                  {/* <div className={styles.videoVolume}> */}
-                  {isVideoMuted ? (
-                    <button onClick={() => setIsVideoMuted(false)}>
-                      <HiVolumeOff className={styles.videoVolumeIcon} />
-                    </button>
-                  ) : (
-                    <button onClick={() => setIsVideoMuted(true)}>
-                      <HiVolumeUp className={styles.videoVolumeIcon} />
-                    </button>
-                  )}
-                </div>
+              <video
+                ref={videoRef}
+                onClick={onVideoClick}
+                loop
+                src={post?.video?.asset.url}
+                className={styles.video}
+              ></video>
+              <div className={styles.videoControls}>
+                {!isPlaying ? (
+                  <button onClick={onVideoClick}>
+                    <BsFillPlayFill className={styles.videoPlayIcon} />
+                  </button>
+                ) : (
+                  <button onClick={onVideoClick}>
+                    <BsFillPauseFill className={styles.videoPlayIcon} />
+                  </button>
+                )}
+
+                {isVideoMuted ? (
+                  <button onClick={() => setIsVideoMuted(false)}>
+                    <HiVolumeOff className={styles.videoVolumeIcon} />
+                  </button>
+                ) : (
+                  <button onClick={() => setIsVideoMuted(true)}>
+                    <HiVolumeUp className={styles.videoVolumeIcon} />
+                  </button>
+                )}
               </div>
             </div>
             <div className={styles.info}>

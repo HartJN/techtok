@@ -23,29 +23,28 @@ const SuggestedAccounts: NextPage<IProps> = ({ fetchAllUsers, allUsers }) => {
   return (
     <div className={styles.container}>
       <p className={styles.sidebarHeading}>Suggested accounts</p>
-      <div>
-        {users?.slice(0, 6).map((user: IUser) => (
-          <Link href={`/profile/${user._id}`} key={user._id}>
-            <div className={styles.wrapper}>
-              <div className={styles.image}>
-                <Image
-                  width={34}
-                  height={34}
-                  className={styles.roundedFull}
-                  src={user.image}
-                  alt="user-profile"
-                  layout="responsive"
-                />
-              </div>
-              <div className={styles.info}>
-                <p className={styles.sidebarHeadingSu}>
-                  {user.userName.replace(/\s+/g, '')}{' '}
-                </p>
-              </div>
+
+      {users?.slice(0, 6).map((user: IUser) => (
+        <Link href={`/profile/${user._id}`} key={user._id}>
+          <div className={styles.wrapper}>
+            <div className={styles.image}>
+              <Image
+                width={34}
+                height={34}
+                className={styles.roundedFull}
+                src={user.image}
+                alt="user-profile"
+                layout="responsive"
+              />
             </div>
-          </Link>
-        ))}
-      </div>
+            <div className={styles.info}>
+              <p className={styles.sidebarHeadingSu}>
+                {user.userName.replace(/\s+/g, '')}{' '}
+              </p>
+            </div>
+          </div>
+        </Link>
+      ))}
     </div>
   )
 }

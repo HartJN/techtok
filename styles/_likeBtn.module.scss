@@ -16,14 +16,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 0.5rem;
       .likeBtnText {
         font-size: 2.5rem;
       }
     }
 
     .iconLiked {
-      background-color: #ff79c6;
+      background-color: #fa5067;
       color: #f8f8f2;
+      padding: 0.5rem;
       .likeBtnText {
         font-size: 2.5rem;
         color: #f8f8f2;

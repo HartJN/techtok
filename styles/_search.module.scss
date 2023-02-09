@@ -6,13 +6,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-width: 70rem;
   .tabs {
     width: 100%;
     height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    // border-bottom: 1px solid #e6ecf0;
+
     .tabsAccounts,
     .tabsVideos {
       width: 50%;
@@ -32,15 +33,15 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    // align-items: center;
+
     .accountsItem {
       width: 50%;
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      // border-bottom: 1px solid #e6ecf0;
+
       cursor: pointer;
-      margin-top: 4rem;
+      margin-top: 2rem;
       .img {
         width: 50px;
         height: 50px;
@@ -85,18 +86,64 @@
     grid-gap: 1rem;
     padding: 2rem;
     margin-top: 4rem;
-    // overflow-y: scroll;
   }
 
-  .tabsAccountsActive {
-    border-bottom: 2px solid #50fa7b;
-    color: #50fa7b;
-    z-index: 2;
-  }
-
+  .tabsAccountsActive,
   .tabsVideosActive {
     border-bottom: 2px solid #50fa7b;
     color: #50fa7b;
     z-index: 2;
+  }
+}
+
+@media (max-width: 59em) {
+  .container {
+    .tabs {
+      .tabsAccounts,
+      .tabsVideos {
+        font-size: 2.8rem;
+      }
+    }
+
+    .videos {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .accounts {
+      .accountsItem {
+        width: 100%;
+        margin-top: 0;
+
+        .img {
+          width: 5rem;
+          height: 5rem;
+          border-radius: 50%;
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 34em) {
+  .container {
+    min-width: 50rem;
+    .videos {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    .tabs {
+      margin-top: 5rem;
+
+      .tabsAccounts,
+      .tabsVideos {
+        width: 100%;
+        height: 50px;
+        font-size: 2.8rem;
+      }
+    }
+  }
+  .accounts {
+    margin-top: 5rem;
   }
 }

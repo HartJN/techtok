@@ -1,8 +1,6 @@
 .detailsContainer {
   display: flex;
   flex-direction: column;
-  // background-color: #0e0e10;
-  // border-radius: 10px;
 
   .detailsOverlayClose {
     .backBtn {
@@ -23,12 +21,9 @@
     flex-direction: column;
     border-radius: 10px 10px 0 0;
 
-    // justify-content: space-between;
-    // align-items: center;
     padding: 0 10rem 0 2rem;
-    // background-color: #282a36;
+
     padding: 2rem 0;
-    // border-bottom: 5px solid rgba(68, 71, 90, 0.3882352941);
 
     .userInfo {
       cursor: pointer;
@@ -37,7 +32,7 @@
         display: flex;
         align-items: center;
         position: relative;
-        // z-index: 1;
+
         gap: 1.5rem;
         margin-left: 1rem;
 
@@ -48,40 +43,25 @@
         }
 
         .userProfileInfo {
-          // display: flex;
-          // flex-direction: column;
-          // align-items: center;
-          // justify-content: center;
-
           .userProfileInfoName {
             color: #fff;
             font-size: 2.5rem;
             font-weight: bold;
             display: flex;
             align-items: center;
-            // justify-content: center;
 
             .userProfileInfoNameVerified {
               color: #50fa7b;
-              // height: auto;
+
               margin-left: 0.5rem;
-              // width: 2.5rem;
             }
           }
         }
         .caption {
-          // display: flex;
-          // align-items: center;
-          // position: relative;
-
           .captionText {
-            // display: flex;
-            // align-items: center;
-            // justify-content: flex-end;
-            // position: relative;
             color: #fff;
             font-size: 2.2rem;
-            // font-weight: bold;
+
             margin: 0;
           }
         }
@@ -92,49 +72,46 @@
   .videoContainer {
     display: flex;
     flex-direction: row;
+    background-color: #18181b;
+    min-height: 70rem;
+    border-radius: 15px;
 
     .videoOverlay {
       flex: 1 1 75%;
-      // background-color: #282a36;
+
       border-radius: 0 0 0 10px;
       align-self: center;
 
-      .videoWrapper {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      position: relative;
+
+      .video {
+        max-width: 100%;
+        max-height: 80rem;
+        border-radius: 15px 0 0 15px;
+      }
+
+      .videoControls {
         display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        position: relative;
+        flex-direction: row;
+        position: absolute;
+        bottom: 0;
+        right: 25%;
 
-        .video {
-          // margin-top: 5rem;
-          max-width: 95%;
-          max-height: 80rem;
-          border-radius: 15px;
-          // margin-top: 0.5rem;
+        button {
+          background-color: transparent;
+          border: none;
 
-          // object-fit: contain;
-        }
-
-        .videoControls {
-          display: flex;
-          flex-direction: row;
-          position: absolute;
-          bottom: 0;
-          right: 25%;
-
-          button {
-            background-color: transparent;
-            border: none;
-
-            .videoPlayIcon,
-            .videoPauseIcon,
-            .videoVolumeIcon,
-            .videoMuteIcon {
-              color: #50fa7b;
-              font-size: 3rem;
-              height: 5rem;
-              width: 5rem;
-            }
+          .videoPlayIcon,
+          .videoPauseIcon,
+          .videoVolumeIcon,
+          .videoMuteIcon {
+            color: #50fa7b;
+            font-size: 3rem;
+            height: 5rem;
+            width: 5rem;
           }
         }
       }
@@ -144,10 +121,9 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      background: #282a36;
+
       position: relative;
       flex: 1 1 25%;
-      border-radius: 0 0 10px 0;
 
       .likes {
         display: flex;
@@ -156,6 +132,37 @@
         position: relative;
         width: 100%;
         background-color: #18181b;
+        border-radius: 0 0 15px 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 59em) {
+  .detailsContainer {
+    max-width: fit-content;
+    overflow: hidden;
+
+    .videoContainer {
+      flex-direction: column;
+      background-color: #18181b;
+      border-radius: 10px;
+      padding: 1rem;
+
+      .videoOverlay {
+        border-radius: 0;
+
+        .video {
+          max-height: 100%;
+
+          border-radius: 15px;
+        }
+        .videoControls {
+          right: 0;
+        }
+      }
+      .info {
+        border-radius: 0;
       }
     }
   }

@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  height: 6rem;
+  height: 8rem;
   background-color: #18181b;
   color: #cbcbcd;
 
@@ -22,16 +22,13 @@
     .middleContainer {
       display: flex;
       align-items: center;
-      // margin: 0 10px;
 
       .search {
         display: flex;
         align-items: center;
-        // border: 1px solid #6272a4;
 
         height: 4.5rem;
 
-        // width: 100vw;
         .searchInput {
           width: 50rem;
           height: 100%;
@@ -48,6 +45,9 @@
           }
 
           &:focus {
+            background-color: #000000;
+            color: #f8f8f2;
+
             outline: transparent;
           }
         }
@@ -95,7 +95,6 @@
         }
 
         .uploadText {
-          // display: none;
           color: #efeff1;
         }
       }
@@ -126,6 +125,76 @@
     margin-right: 5rem;
     .pointer {
       cursor: pointer;
+    }
+  }
+}
+
+@media (max-width: 59em) {
+  .container {
+    background-color: yellow;
+  }
+}
+
+@media (max-width: 44em) {
+  .container {
+    background-color: red;
+
+    .middle {
+      .middleContainer {
+        .search {
+          .searchInput {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .left {
+      .logo {
+        margin-right: 0;
+      }
+    }
+
+    .right {
+      .user {
+        .uploadBtn {
+          .uploadText {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 34em) {
+  .container {
+    background-color: blue;
+
+    .middle {
+      .middleContainer {
+        .search {
+          .searchInput {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .left {
+      .logo {
+        margin-right: 0;
+      }
+    }
+
+    .right {
+      .user {
+        .uploadBtn {
+          .uploadText {
+            display: none;
+          }
+        }
+      }
     }
   }
 }

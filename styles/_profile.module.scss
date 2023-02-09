@@ -7,7 +7,6 @@
     padding: 1.5rem;
     display: flex;
     flex-direction: row;
-    // background-color: #44475a;
     border-radius: 10px 10px 0 0;
     .headerImage {
       width: 4.5rem;
@@ -36,16 +35,13 @@
   .content {
     width: 100%;
 
-    // border-radius: 10px;
-
     .contentHeader {
       width: 100%;
       padding: 1rem;
       display: flex;
       flex-direction: row;
       border-bottom: 2px solid #efeff186;
-      // background-color: #44475a;
-      // margin-bottom: 4rem;
+
       .contentHeaderTitle {
         font-size: 1.8rem;
         margin: 0 10px;
@@ -79,4 +75,27 @@
 }
 
 .unlikedVideoCategory {
+}
+
+@media (max-width: 59em) {
+  .container {
+    .content {
+      .contentList {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+      }
+    }
+  }
+}
+
+@media (max-width: 34em) {
+  .container {
+    .content {
+      min-width: 50rem;
+      .contentList {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+      }
+    }
+  }
 }
