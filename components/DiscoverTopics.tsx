@@ -10,7 +10,6 @@ const Discover = () => {
   const router = useRouter()
   const { topic } = router.query
 
-
   return (
     <div className={styles.container}>
       <p className={styles.heading}>Popular Topics</p>

@@ -15,11 +15,11 @@ import axios from 'axios'
 
 import styles from '../../styles/_details.module.scss'
 
-interface IProps {
+interface Props {
   postDetails: Video
 }
 
-const Detail = ({ postDetails }: IProps) => {
+const Detail = ({ postDetails }: Props) => {
   const [post, setPost] = useState(postDetails)
   const [isPlaying, setIsPlaying] = useState<boolean>(false)
   const [isVideoMuted, setIsVideoMuted] = useState<boolean>(false)

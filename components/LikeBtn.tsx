@@ -5,14 +5,14 @@ import styles from '../styles/_likeBtn.module.scss'
 
 import useAuthStore from '../store/authStore'
 
-interface IProps {
+interface Props {
   likes: any
   flex: string
   handleLike: () => void
   handleDislike: () => void
 }
 
-const LikeButton: NextPage<IProps> = ({
+const LikeButton: NextPage<Props> = ({
   likes,
   flex,
   handleLike,

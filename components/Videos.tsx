@@ -10,12 +10,12 @@ import styles from '../styles/_Videos.module.scss'
 
 import { Video } from './../types'
 
-interface IProps {
+interface Props {
   post: Video
   isShowingOnHome?: boolean
 }
 
-const VideoCard: NextPage<IProps> = ({
+const VideoCard: NextPage<Props> = ({
   post: { caption, postedBy, video, _id, likes },
   isShowingOnHome,
 }) => {

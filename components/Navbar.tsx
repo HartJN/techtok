@@ -8,13 +8,13 @@ import { IoMdAdd } from 'react-icons/io'
 import { GoogleLogin, googleLogout } from '@react-oauth/google'
 
 import useAuthStore from '../store/authStore'
-import { IUser } from '../types'
+import { User } from '../types'
 import { createOrGetUser } from '../utils'
 import Logo from '../utils/user.png'
 import styles from '../styles/_navbar.module.scss'
 
 const Navbar = () => {
-  const [user, setUser] = useState<IUser | null>()
+  const [user, setUser] = useState<User | null>()
   const [searchValue, setSearchValue] = useState('')
   const router = useRouter()
   const { userProfile, addUser, removeUser } = useAuthStore()

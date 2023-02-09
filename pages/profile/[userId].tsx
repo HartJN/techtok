@@ -5,20 +5,20 @@ import axios from 'axios'
 
 import Videos from '../../components/Videos'
 import NoResults from '../../components/EmptyResults'
-import { IUser, Video } from '../../types'
+import { User, Video } from '../../types'
 import { BASE_URL } from '../../utils'
 
 import styles from '../../styles/_profile.module.scss'
 
-interface IProps {
+interface Props {
   data: {
-    user: IUser
+    user: User
     userVideos: Video[]
     userLikedVideos: Video[]
   }
 }
 
-const Profile = ({ data }: IProps) => {
+const Profile = ({ data }: Props) => {
   const [showUserVideos, setShowUserVideos] = useState<Boolean>(true)
   const [videosList, setVideosList] = useState<Video[]>([])
 

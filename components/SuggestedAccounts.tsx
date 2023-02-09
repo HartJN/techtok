@@ -4,14 +4,14 @@ import { NextPage } from 'next'
 import Link from 'next/link'
 import styles from '../styles/_SuggestedAccounts.module.scss'
 
-import { IUser } from '../types'
+import { User } from '../types'
 
-interface IProps {
+interface Props {
   fetchAllUsers: () => void
-  allUsers: IUser[]
+  allUsers: User[]
 }
 
-const SuggestedAccounts: NextPage<IProps> = ({ fetchAllUsers, allUsers }) => {
+const SuggestedAccounts: NextPage<Props> = ({ fetchAllUsers, allUsers }) => {
   useEffect(() => {
     fetchAllUsers()
   }, [fetchAllUsers])
@@ -24,7 +24,7 @@ const SuggestedAccounts: NextPage<IProps> = ({ fetchAllUsers, allUsers }) => {
     <div className={styles.container}>
       <p className={styles.sidebarHeading}>Suggested accounts</p>
 
-      {users?.slice(0, 6).map((user: IUser) => (
+      {users?.slice(0, 6).map((user: User) => (
         <Link href={`/profile/${user._id}`} key={user._id}>
           <div className={styles.wrapper}>
             <div className={styles.image}>

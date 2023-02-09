@@ -7,11 +7,11 @@ import { Video } from '../types'
 import NoResults from '../components/EmptyResults'
 import styles from '../styles/_home.module.scss'
 
-interface IProps {
+interface Props {
   videos: Video[]
 }
 
-const Home = ({ videos }: IProps) => {
+const Home = ({ videos }: Props) => {
   return (
     <div className={styles.home}>
       {videos.length ? (

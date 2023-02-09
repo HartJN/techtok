@@ -6,9 +6,9 @@ import styles from '../styles/_comments.module.scss'
 
 import useAuthStore from '../store/authStore'
 import NoResults from './EmptyResults'
-import { IUser } from '../types'
+import { User } from '../types'
 
-interface IProps {
+interface Props {
   isPostingComment: Boolean
   comment: string
   setComment: Dispatch<SetStateAction<string>>
@@ -29,7 +29,7 @@ const Comments = ({
   addComment,
   comments,
   isPostingComment,
-}: IProps) => {
+}: Props) => {
   const { allUsers, userProfile }: any = useAuthStore()
 
   return (
@@ -39,7 +39,7 @@ const Comments = ({
           comments?.map((item: IComment, idx: number) => (
             <>
               {allUsers?.map(
-                (user: IUser) =>
+                (user: User) =>
                   user._id === (item.postedBy._ref || item.postedBy._id) && (
                     <div className={styles.comment_item} key={idx}>
                       <Link href={`/profile/${user._id}`}>

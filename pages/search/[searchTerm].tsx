@@ -9,20 +9,20 @@ import EmptyResults from '../../components/EmptyResults'
 import Videos from '../../components/Videos'
 import useAuthStore from '../../store/authStore'
 import { BASE_URL } from '../../utils'
-import { IUser, Video } from '../../types'
+import { User, Video } from '../../types'
 
 import styles from '../../styles/_search.module.scss'
 
 const Search = ({ videos }: { videos: Video[] }) => {
   const [isAccounts, setIsAccounts] = useState(false)
-  const { allUsers }: { allUsers: IUser[] } = useAuthStore()
+  const { allUsers }: { allUsers: User[] } = useAuthStore()
 
   const router = useRouter()
   const { searchTerm }: any = router.query
 
   const accounts = isAccounts ? styles.tabsAccountsActive : ''
   const isVideos = !isAccounts ? styles.tabsVideosActive : ''
-  const searchedAccounts = allUsers?.filter((user: IUser) =>
+  const searchedAccounts = allUsers?.filter((user: User) =>
     user.userName.toLowerCase().includes(searchTerm)
   )
 
@@ -45,7 +45,7 @@ const Search = ({ videos }: { videos: Video[] }) => {
       {isAccounts ? (
         <div className={styles.accounts}>
           {searchedAccounts.length > 0 ? (
-            searchedAccounts.map((user: IUser, idx: number) => (
+            searchedAccounts.map((user: User, idx: number) => (
               <Link key={idx} href={`/profile/${user._id}`}>
                 <div className={styles.accountsItem}>
                   <Image
