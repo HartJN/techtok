@@ -1,34 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# TechTok
 
-## Getting Started
+TechTok is a social media application that allows users to post and comment on tech-related content. Built using Typescript, Next.js, Sanity.io, React, Zustand, and SCSS.
 
-First, run the development server:
+## Demo Link
 
-```bash
-npm run dev
-# or
-yarn dev
+A live demo of the project can be found at https://techtok.vercel.app/. Check it out to see the website in action!
+
+## Running the Project
+
+To run the project on your local machine, make sure you have Node.js installed. Then, follow these steps:
+
+1. Clone the repository to your local machine
+
+    ```
+    git clone https://github.com/HartJN/techtok.git
+    ```
+
+2. Navigate to the project directory in your terminal/command prompt
+
+    ```
+    cd TechTok
+    ```
+
+3. Install the dependencies by running npm install
+
+    ```
+    npm install
+    ```
+
+4. Start the development server using npm run dev
+
+    ```
+    npm run dev
+    ```
+
+This will start a local development server that you can access at http://localhost:3000.
+
+5. To run the Sanity.io backend, cd into `sanitybackend` and run `sanity start`. This will start a local server that serves the backend data, which the frontend application uses.
+
+    ```
+    cd sanitybackend
+    sanity start
+    ```
+
+This will start the Sanity.io backend server that you can access at http://localhost:3333.
+
+## Building and Starting the Project
+
+To build the project for production, run npm run build. This will compile the TypeScript code and generate a set of static files that can be deployed to a server.
+
+```
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To start the built project, run npm run start. This will start a local server that serves the built files, allowing you to see how the project will look when deployed.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+npm run start
+```
